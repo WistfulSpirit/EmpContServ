@@ -20,7 +20,7 @@ namespace EmpContServ
     {
         public Startup(IConfiguration configuration)
         {
-
+            
             Configuration = configuration;
 
         }
@@ -43,6 +43,8 @@ namespace EmpContServ
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            string appRoot= Path.Combine(Directory.GetCurrentDirectory(), "App_Data");
+            AppDomain.CurrentDomain.SetData("DataDirectory", appRoot);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

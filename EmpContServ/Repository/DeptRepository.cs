@@ -20,7 +20,7 @@ namespace EmpContServ.Repository
             if (connectionString.Contains("[DataDirectory]"))
             {
                 string path = Path.Combine(Directory.GetCurrentDirectory(), "App_Data");
-                string ss = connectionString.Replace("[DataDirectory]", path);
+                connectionString = connectionString.Replace("[DataDirectory]", path);
             }
             connection = new SqlConnection(connectionString);
         }
