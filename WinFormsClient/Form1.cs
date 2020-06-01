@@ -51,13 +51,11 @@ namespace WinFormsClient
             try
             {
                 depts = await deptController.GetAsync();
-                foreach (var d in depts)
-                {
-                    listBoxDept.DataSource = depts;
-                    listBoxDept.ValueMember = "Id";
-                    listBoxDept.DisplayMember = "Name";
-                    listBoxDept.ContextMenuStrip = contextMenuDept;
-                }
+                AddEmp.Enabled = (depts.Count > 0);
+                listBoxDept.DataSource = depts;
+                listBoxDept.ValueMember = "Id";
+                listBoxDept.DisplayMember = "Name";
+                listBoxDept.ContextMenuStrip = contextMenuDept;
                 Data.deptList = depts;
             }
             catch (HttpRequestException ex)

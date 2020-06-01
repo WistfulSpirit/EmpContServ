@@ -37,8 +37,9 @@ namespace EmpContServ.Controllers
         // GET: Employee/Details/5
         public ActionResult Details(int id)
         {
-            deptRepository.GetAll();
+            ViewBag.DeptName = deptRepository.Get(Dept_Id).Name;
             ViewBag.DeptId = Dept_Id;
+            
             return View(employeeRepository.Get(id));
         }
 
@@ -95,7 +96,7 @@ namespace EmpContServ.Controllers
                 ViewBag.DeptId = Dept_Id;
                 employeeRepository.Update(new Models.Employee
                 {
-                    Id = Convert.ToInt32(collection["Id"]),
+                    Id = id,
                     Name = (string)collection["Name"],
                     Surname = (string)collection["Surname"],
                     Patronymic = (string)collection["Patronymic"],
@@ -103,7 +104,6 @@ namespace EmpContServ.Controllers
                     Address = (string)collection["Address"],
                     About = (string)collection["About"],
                     Dept_Id = Convert.ToInt32(collection["Dept_Id"])
-
                 });
                 return RedirectToAction(nameof(Index), new { id = Dept_Id });
             }
