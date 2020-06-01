@@ -249,6 +249,8 @@ namespace WinFormsClient
                     else
                         await EditEmp(Data.employee);
                 }
+                FillEmps(emp.Dept_Id);
+
             }
             depts = await deptController.GetAsync();
             Data.employee = null;

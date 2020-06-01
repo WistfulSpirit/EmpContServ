@@ -149,10 +149,11 @@ namespace EmpContServ.Repository
         public int Update(Employee emp)
         {
             int rRow = -1;
-            string cmd = $"UPDATE Employee SET Name = @Name, Surname = @Surname, Patronymic = @Patronymic," +
-                $" Birthday = @Birthday, Address = @Address, About = @About, Dept_Id = @Dept_Id";
+            string cmd = $"UPDATE Employee SET [Name] = @Name, Surname = @Surname, Patronymic = @Patronymic," +
+                $" Birthday = @Birthday, [Address] = @Address, About = @About, Dept_Id = @Dept_Id WHERE Id = @Id";
             using (SqlCommand command = new SqlCommand(cmd, connection))
             {
+                command.Parameters.AddWithValue("@Id", emp.Id);
                 command.Parameters.AddWithValue("@Name", emp.Name);
                 command.Parameters.AddWithValue("@Surname", emp.Surname);
                 command.Parameters.AddWithValue("@Patronymic", emp.Patronymic);
