@@ -16,6 +16,12 @@ namespace EmpContServ.Repository
         public EmployeeRepository(IConfiguration config)
         {
             string connectionString = config.GetConnectionString("DefaultConnection");
+            string connectionString = configuration.GetSection("ConnectionStrings:DefaultConnection").Value;
+            if (connectionString.Contains("[DataDirectory]"))
+            {
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "App_Data");
+                string ss = connectionString.Replace("[DataDirectory]", path);
+            }
             connection = new SqlConnection(connectionString);
         }
         /// <summary>

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace EmpContServ.Repository
 {
@@ -16,6 +17,11 @@ namespace EmpContServ.Repository
         public DeptRepository(IConfiguration configuration)
         {
             string connectionString = configuration.GetSection("ConnectionStrings:DefaultConnection").Value;
+            if (connectionString.Contains("[DataDirectory]"))
+            {
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "App_Data");
+                string ss = connectionString.Replace("[DataDirectory]", path);
+            }
             connection = new SqlConnection(connectionString);
         }
         /// <summary>

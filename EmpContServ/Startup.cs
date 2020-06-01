@@ -20,6 +20,7 @@ namespace EmpContServ
     {
         public Startup(IConfiguration configuration)
         {
+
             Configuration = configuration;
 
         }
@@ -35,20 +36,6 @@ namespace EmpContServ
             //    options.CheckConsentNeeded = context => true;
             //    options.MinimumSameSitePolicy = SameSiteMode.None;
             //});
-            if (Configuration.GetConnectionString("DefaultConnection").Contains("[DataDirectory]"))
-            {
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "App_Data");
-                string ss = Configuration.GetConnectionString("DefaultConnection").Replace("[DataDirectory]", path);
-                AppDomain.CurrentDomain.SetData("DefaultConnection", ss);
-            }
-
-            //From stack overflow 
-            //services.AddHttpClient("HttpClientWithSSLUntrusted").ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
-            //{
-            //    ClientCertificateOptions = ClientCertificateOption.Manual,
-            //    ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) =>{return true;}
-            //});
-
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
