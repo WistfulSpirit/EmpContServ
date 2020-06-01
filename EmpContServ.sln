@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmpContServ", "EmpContServ\EmpContServ.csproj", "{F9FEF68B-98CB-41AA-B624-AC03ADADF43E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsClient", "WinFormsClient\WinFormsClient.csproj", "{ED9011EF-EF0A-49FA-BC18-61D6C87BD332}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9FEF68B-98CB-41AA-B624-AC03ADADF43E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9FEF68B-98CB-41AA-B624-AC03ADADF43E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9FEF68B-98CB-41AA-B624-AC03ADADF43E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9FEF68B-98CB-41AA-B624-AC03ADADF43E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED9011EF-EF0A-49FA-BC18-61D6C87BD332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED9011EF-EF0A-49FA-BC18-61D6C87BD332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED9011EF-EF0A-49FA-BC18-61D6C87BD332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED9011EF-EF0A-49FA-BC18-61D6C87BD332}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81F120E0-64AB-4081-BCC9-5BCEA7AF870B}
+	EndGlobalSection
+EndGlobal

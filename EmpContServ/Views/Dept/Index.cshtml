@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EmpContServ.Models.Dept>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Список отделов</h2>
+
+<p>
+    <a asp-action="Create">Создать новый</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EpmployeesCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.RouteLink($"Посмотреть ({item.EpmployeesCount} шт.)", new { controller = "Employee", action = "Index", id = item.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.Id }) |
+                    @Html.RouteLink("Удалить", "default", new { controller = "Dept", action = "Delete", id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
