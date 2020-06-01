@@ -56,6 +56,6 @@
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.RouteLink("Удалить", "default", new { controller = "Employee", action = "Delete", id = item.Id })
+    @Html.RouteLink("Удалить", "default", new { controller = "Employee", action = "Delete", id = Model.Id })
     <a asp-action="Index" asp-route-id="@ViewBag.DeptId">Back to List</a>
 </div>
