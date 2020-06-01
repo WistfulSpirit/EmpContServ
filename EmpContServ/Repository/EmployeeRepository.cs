@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,7 +17,6 @@ namespace EmpContServ.Repository
         public EmployeeRepository(IConfiguration config)
         {
             string connectionString = config.GetConnectionString("DefaultConnection");
-            string connectionString = configuration.GetSection("ConnectionStrings:DefaultConnection").Value;
             if (connectionString.Contains("[DataDirectory]"))
             {
                 string path = Path.Combine(Directory.GetCurrentDirectory(), "App_Data");
